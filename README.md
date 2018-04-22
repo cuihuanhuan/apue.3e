@@ -1,9 +1,13 @@
 # apue.3e
+
 UNIX环境高级编程第三版
-本书代码下载于http://apuebook.com/
+
+本书配套代码下载于http://apuebook.com/
 
 
 make报错
+
+```
 [u1@h1 apue.3e]$ make
 gcc -ansi -I../include -Wall -DLINUX -D_GNU_SOURCE   -c -o rwlock.o rwlock.c
 gcc -ansi -I../include -Wall -DLINUX -D_GNU_SOURCE  timedlock.c -o timedlock  -L../lib -lapue -pthread -lrt -lbsd
@@ -14,9 +18,12 @@ collect2: ld 返回 1
 make[1]: *** [barrier] 错误 1
 make[1]: Leaving directory `/home/albert/Documents/progs/apue.3e/threads’
 make: *** [all] 错误 1
+```
 
 是因为少库
+
 解决方法：
+```
 在https://pkgs.org/download/libbsd,下载libbsd,libbsd-devel,我没用这里,直接用的下面的方法
 
 或
@@ -29,7 +36,8 @@ rpm -ivh libbsd-0.2.0-4.el6.elrepo.x86_64.rpm
 
 rpm -ivh libbsd-devel-0.2.0-4.el6.elrepo.x86_64.rpm  
 
-
+```
 
 再次make,通过
+
 可以做相关测试和代码阅读了.
